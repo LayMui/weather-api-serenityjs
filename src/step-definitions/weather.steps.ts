@@ -17,7 +17,7 @@ When(
   '{pronoun} request for weather forecasts for city {string}',
   async (actor: Actor, city: string) => {
     const encodedCity = city.replace(" ", "%20")
-    await actor.attemptsTo(GetWeather.usingCity(encodedCity))
+    await actor.attemptsTo(GetWeather.forClimateForecast(encodedCity))
   }
 )
 
@@ -28,5 +28,13 @@ Then(
     await actor.attemptsTo(
      VerifyWeatherDetails.hasSuccessfulStatus(actor),
     )
+  }
+)
+
+
+When(
+  '{pronoun} request for 5 days 3 hours forecasts for city {string}',
+  async (actor: Actor, city: string) => {
+    // To be done
   }
 )

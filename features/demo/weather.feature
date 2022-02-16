@@ -16,3 +16,13 @@ Scenario Outline: Able to get weather forecasts for a city
     | city          |
     | San Francisco | 
 
+
+Rule: Get daily and hourly forecasts data for a city
+
+Scenario Outline: Able to get daily and hourly forecast
+    When he request for 5 days 3 hours forecasts for city "<city>"
+    Then he is able to get the 5 days 3 hours forecasts information
+
+    Examples:
+    | city          |
+    | Singapore     | 
