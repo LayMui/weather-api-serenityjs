@@ -7,7 +7,7 @@ Background:
     Given James is at the weather services url
 
 Rule: Get weather forecasts for a city
-@test
+
 Scenario Outline: Able to get weather forecasts for a city
     When he request for weather forecasts for city "<city>"
     Then he is able to get the weather forecasts information
@@ -18,7 +18,7 @@ Scenario Outline: Able to get weather forecasts for a city
 
 
 Rule: Get daily and hourly forecasts data for a city
-
+@test
 Scenario Outline: Able to get daily and hourly forecast
     When he request for 5 days 3 hours forecasts for city "<city>"
     Then he is able to get the 5 days 3 hours forecasts information
@@ -26,3 +26,4 @@ Scenario Outline: Able to get daily and hourly forecast
     Examples:
     | city          |
     | Singapore     | 
+   # | chennai,india |

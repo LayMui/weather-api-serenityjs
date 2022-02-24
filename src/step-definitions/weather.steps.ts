@@ -35,6 +35,15 @@ Then(
 When(
   '{pronoun} request for 5 days 3 hours forecasts for city {string}',
   async (actor: Actor, city: string) => {
-    // To be done
+    let encodedCity = city.replace(' ', '%20')
+     encodedCity = city.replace(',', '%2C')
+    await actor.attemptsTo(GetWeather.forDailyHourlyForecast(encodedCity))
+  }
+)
+
+Then(
+  '{pronoun} is able to get the 5 days 3 hours forecasts information',
+  async (actor: Actor) => {
+    await actor.attemptsTo(VerifyWeatherDetails.hasSuccessfulStatus(actor))
   }
 )

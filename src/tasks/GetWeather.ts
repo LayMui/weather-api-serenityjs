@@ -21,9 +21,9 @@ export const GetWeather = {
 
   forDailyHourlyForecast: (city: string) =>
     Task.where(
-      `#actor get weather forecast using city ${city}`,
+      `#actor get daily hourly forecast using city ${city}`,
       Send.a(
-        GetRequest.to('/climate/month?q=' + `${city}`).using({
+        GetRequest.to('/forecast?q=' + `${city}`).using({
           headers: {
             accept: 'application/json',
             'x-rapidapi-host': 'community-open-weather-map.p.rapidapi.com',
@@ -33,6 +33,6 @@ export const GetWeather = {
           },
         })
       ),
-      Log.the(LastResponse.body())
+    //  Log.the(LastResponse.body())
     ),
 }
